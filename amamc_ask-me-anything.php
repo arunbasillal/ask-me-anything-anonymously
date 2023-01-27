@@ -163,6 +163,7 @@ function amamc_admin_interface_render () { ?>
 				var placeholder_attribute			= '';
 				var	test_question_attribute			= '';
 				var test_answer_attribute			= '';
+				var test_placeholder_attribute		= '';
 				var ask_button_text_attribute		= '';
 				var answer_list_title_attribute		= '';
 				var no_answers_text_attribute		= '';
@@ -175,7 +176,6 @@ function amamc_admin_interface_render () { ?>
 				var show_test_question_attribute	= '';
 				var show_do_action_attribute		= '';
 				var give_thanks_attribute			= '';
-				
 				var post_or_page_id 				= '';
 				var latest_first 					= '';
 				var anonymous_name					= '';
@@ -184,6 +184,7 @@ function amamc_admin_interface_render () { ?>
 				var placeholder						= '';
 				var	test_question					= '';
 				var test_answer						= '';
+				var test_placeholder				= '';
 				var ask_button_text					= '';
 				var answer_list_title				= '';
 				var no_answers_text					= '';
@@ -238,6 +239,10 @@ function amamc_admin_interface_render () { ?>
 					test_answer_attribute 		= ' test_answer=';
 					test_answer		 			= '"'+attribute_value+'"';
 				}
+				if ( ( attribute_value = document.getElementById('test_placeholder').value ) != 'Enter your answer.' ) {
+					test_placeholder_attribute 	= ' test_placeholder=';
+					test_placeholder 			= '"'+attribute_value+'"';
+				}
 				if ( ( attribute_value = document.getElementById('ask_button_text').value ) != 'Ask Anonymously' ) {
 					ask_button_text_attribute 	= ' ask_button_text=';
 					ask_button_text 			= '"'+attribute_value+'"';
@@ -288,7 +293,7 @@ function amamc_admin_interface_render () { ?>
 					document.getElementById("ama-hidden-thanks").style.display = 'block';
 				}
 				
-				document.getElementById("amamc_shortcode").value = '[askmeanythingpeople'+post_or_page_id_attribute+post_or_page_id+latest_first_attribute+latest_first+anonymous_name_attribute+anonymous_name+success_text_attribute+success_text+question_box_title_attribute+question_box_title+placeholder_attribute+placeholder+test_question_attribute+test_question+test_answer_attribute+test_answer+ask_button_text_attribute+ask_button_text+answer_list_title_attribute+answer_list_title+no_answers_text_attribute+no_answers_text+questions_per_page_attribute+questions_per_page+avatar_attribute+avatar+avatar_size_attribute+avatar_size+show_question_box_attribute+show_question_box+show_answers_attribute+show_answers+show_navigation_attribute+show_navigation+show_test_question_attribute+show_test_question+show_do_action_attribute+show_do_action+give_thanks_attribute+give_thanks+']';
+				document.getElementById("amamc_shortcode").value = '[askmeanythingpeople'+post_or_page_id_attribute+post_or_page_id+latest_first_attribute+latest_first+anonymous_name_attribute+anonymous_name+success_text_attribute+success_text+question_box_title_attribute+question_box_title+placeholder_attribute+placeholder+test_question_attribute+test_question+test_answer_attribute+test_answer+test_placeholder_attribute+test_placeholder+ask_button_text_attribute+ask_button_text+answer_list_title_attribute+answer_list_title+no_answers_text_attribute+no_answers_text+questions_per_page_attribute+questions_per_page+avatar_attribute+avatar+avatar_size_attribute+avatar_size+show_question_box_attribute+show_question_box+show_answers_attribute+show_answers+show_navigation_attribute+show_navigation+show_test_question_attribute+show_test_question+show_do_action_attribute+show_do_action+give_thanks_attribute+give_thanks+']';
 			}
 			</script>
 			
@@ -370,6 +375,13 @@ function amamc_admin_interface_render () { ?>
 							<td>
 								<input type="text" class="regular-text" value="12" id="test_answer" name="test_answer" onchange="amamc_make_shortcode()">
 								<p class="description"><?php _e('Enter the answer to the verification question.','abl_amamc_td') ?></p>
+							</td>
+						</tr>
+						<tr>
+							<th scope="row"><label for="test_placeholder"><?php _e('Verification Box Placeholder','abl_amamc_td') ?></label></th>
+							<td>
+								<input type="text" class="regular-text" value="Enter your answer." id="test_placeholder" name="test_placeholder" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('Enter the text to be displayed within the verification answer box as a placeholder.','abl_amamc_td') ?></p>
 							</td>
 						</tr>
 						<tr>
@@ -552,6 +564,7 @@ function amamc_do_askmeanythingpeople( $atts ) {
 			'placeholder'		=> __('In the spirit of keeping it anonymous, please do not leave any personal information.','abl_amamc_td'),
 			'test_question'		=> __('What is 7+5?','abl_amamc_td'),
 			'test_answer'		=> __('12','abl_amamc_td'),
+			'test_placeholder'	=> __('Enter your answer.','abl_amamc_td'),
 			'ask_button_text'	=> __('Ask Anonymously','abl_amamc_td'),
 			'answer_list_title'	=> __('Answers So Far..','abl_amamc_td'),
 			'no_answers_text'	=> __('Be the first to ask!','abl_amamc_td'),
@@ -624,7 +637,7 @@ function amamc_do_askmeanythingpeople( $atts ) {
 							if ( $show_test_question == 'true' ) { ?>
 								<p class="comment-form-comment">
 									<label for="ama-spam-check"><?php echo $test_question; ?></label>
-									<input type="text" name="amatestquestion" id="ama-testquestion" class="ama-testquestion" placeholder="<?php _e('Enter your answer..','abl_amamc_td') ?>" />
+									<input type="text" name="amatestquestion" id="ama-testquestion" class="ama-testquestion" placeholder="<?php echo $test_placeholder; ?>" />
 									
 								</p> <?php
 							} ?>

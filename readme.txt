@@ -65,6 +65,7 @@ question_box_title="Your Question"
 placeholder="In the spirit of keeping it anonymous please do not leave any personal information."
 test_question="What is 7+5?"
 test_answer="12"
+test_placeholder="Enter your answer."
 ask_button_text="Ask Anonymously"
 answer_list_title="Answers So Far.."
 no_answers_text="Be the first to ask!"
@@ -155,6 +156,11 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 == Changelog ==
 
 = 1.4 =
+* Date: 27.January.2023.
+* Tested with WordPress 6.1.1.
+* Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
+
+= 1.4 =
 * Date: 07.March.2021
 * Tested with WordPress 5.7.
 * Bug fix: Fixed PHP notice: Undefined index: amashowtestquestion amamc_ask-me-anything.php on line 820.
@@ -186,6 +192,11 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 * First release of the plugin.
 
 == Upgrade Notice ==
+
+= 1.4 =
+* Date: 27.January.2023.
+* Tested with WordPress 6.1.1.
+* Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
 
 = 1.4 =
 * Date: 07.March.2021
