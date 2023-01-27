@@ -3,7 +3,7 @@ Contributors: arunbasillal
 Donate link: http://millionclues.com/donate/
 Tags: ask me anything, ama, tumblr style questions, qanda, question and answer, anonymous questions, ask questions anonymously, shortcode, Sarahah
 Requires at least: 2.7
-Tested up to: 5.7
+Tested up to: 6.1.1
 Requires PHP: 5.5
 Stable tag: trunk
 License: GPLv2 or later
@@ -65,6 +65,7 @@ question_box_title="Your Question"
 placeholder="In the spirit of keeping it anonymous please do not leave any personal information."
 test_question="What is 7+5?"
 test_answer="12"
+test_placeholder="Enter your answer."
 ask_button_text="Ask Anonymously"
 answer_list_title="Answers So Far.."
 no_answers_text="Be the first to ask!"
@@ -81,6 +82,8 @@ give_thanks="false"`
 Please read the Installation page and FAQ page for more information. If you still have questions, please the Support page for help, bug reports and new feature requests. 
 
 If you like my plugin, please [rate it](https://wordpress.org/support/plugin/ask-me-anything-anonymously/reviews/?rate=5#new-post) and give me credit by setting the give_thanks attribute to true (default is false) in the shortcode. Thanks!
+
+GitHub: [arunbasillal/ask-me-anything-anonymously](https://github.com/arunbasillal/ask-me-anything-anonymously)
 
 == Installation ==
 
@@ -154,6 +157,15 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 
 == Changelog ==
 
+= 1.5 =
+* Date: 27.January.2023.
+* Tested with WordPress 6.1.1.
+* Enhancement: !IMPORTANT! Main plugin file was renamed to meet WordPress standards. This will deactivate the plugin on update. Simply reactivate the plugin to fix the issue.
+* Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
+* Enhancement: Updated CSSTidy to 1.7.3.
+* Security Fix: Deleted unwanted files in CSSTidy.
+* I18n: Updated text domain from `abl_amamc_td` to `ask-me-anything-anonymously` as per WordPress [internationalization guidelines](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#text-domains).
+
 = 1.4 =
 * Date: 07.March.2021
 * Tested with WordPress 5.7.
@@ -186,6 +198,15 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 * First release of the plugin.
 
 == Upgrade Notice ==
+
+= 1.5 =
+* Date: 27.January.2023.
+* Tested with WordPress 6.1.1.
+* Enhancement: !IMPORTANT! Main plugin file was renamed to meet WordPress standards. This will deactivate the plugin on update. Simply reactivate the plugin to fix the issue.
+* Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
+* Enhancement: Updated CSSTidy to 1.7.3.
+* Security Fix: Deleted unwanted files in CSSTidy.
+* I18n: Updated text domain from `abl_amamc_td` to `ask-me-anything-anonymously` as per WordPress [internationalization guidelines](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#text-domains).
 
 = 1.4 =
 * Date: 07.March.2021
