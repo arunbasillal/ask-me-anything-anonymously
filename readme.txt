@@ -159,6 +159,7 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 * Date: 27.January.2023.
 * Tested with WordPress 6.1.1.
 * Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
+* I18n: Updated text domain from `abl_amamc_td` to `ask-me-anything-anonymously` as per WordPress [internationalization guidelines](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#text-domains).
 
 = 1.4 =
 * Date: 07.March.2021
@@ -197,6 +198,7 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 * Date: 27.January.2023.
 * Tested with WordPress 6.1.1.
 * Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
+* I18n: Updated text domain from `abl_amamc_td` to `ask-me-anything-anonymously` as per WordPress [internationalization guidelines](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#text-domains).
 
 = 1.4 =
 * Date: 07.March.2021

@@ -6,7 +6,7 @@ Description: Let your visitors as you questions anonymously and list all questio
 Author: Arun Basil Lal
 Author URI: http://millionclues.com
 Version: 1.5
-Text Domain: abl_amamc_td
+Text Domain: ask-me-anything-anonymously
 Domain Path: /languages
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) exit;
 
 // Add Admin Menu Pages
 function amamc_add_menu_links() {
-	add_options_page ( __('Ask Me Anything','abl_amamc_td'), __('Ask Me Anything','abl_amamc_td'), 'moderate_comments', 'ask-me-anything-shortcode-generator','amamc_admin_interface_render'  );
+	add_options_page ( __('Ask Me Anything','ask-me-anything-anonymously'), __('Ask Me Anything','ask-me-anything-anonymously'), 'moderate_comments', 'ask-me-anything-shortcode-generator','amamc_admin_interface_render'  );
 }
 add_action( 'admin_menu', 'amamc_add_menu_links' );
 
@@ -32,7 +32,7 @@ add_action( 'admin_menu', 'amamc_add_menu_links' );
 function amamc_settings_link( $links ) {
 	return array_merge(
 		array(
-			'settings' => '<a href="' . admin_url( 'options-general.php?page=ask-me-anything-shortcode-generator' ) . '">' . __( 'Generate Shortcode', 'abl_amamc_td' ) . '</a>'
+			'settings' => '<a href="' . admin_url( 'options-general.php?page=ask-me-anything-shortcode-generator' ) . '">' . __( 'Generate Shortcode', 'ask-me-anything-anonymously' ) . '</a>'
 		),
 		$links
 	);
@@ -56,7 +56,7 @@ add_filter( 'plugin_row_meta', 'amamc_plugin_row_meta', 10, 2 );
 
 // Load Text Domain
 function amamc_load_plugin_textdomain() {
-    load_plugin_textdomain( 'abl_amamc_td', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
+    load_plugin_textdomain( 'ask-me-anything-anonymously', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'plugins_loaded', 'amamc_load_plugin_textdomain' );
 
@@ -137,8 +137,8 @@ function amamc_csstidy_helper ( $css, $minify=false ) {
 function amamc_admin_interface_render () { ?>
 	<div class="wrap">
 	
-		<h1><?php _e('Ask Me Anything Shortcode Generator And Settings','abl_amamc_td') ?></h1>
-		<p><?php _e('You can choose your settings below and create a shortcode to display the Ask Me Anything form.','abl_amamc_td') ?></p>
+		<h1><?php _e('Ask Me Anything Shortcode Generator And Settings','ask-me-anything-anonymously') ?></h1>
+		<p><?php _e('You can choose your settings below and create a shortcode to display the Ask Me Anything form.','ask-me-anything-anonymously') ?></p>
 		
 		<?php
 		// Get the tab query variable. If it's not set, set it to the first tab 
@@ -299,121 +299,121 @@ function amamc_admin_interface_render () { ?>
 			
 			<form novalidate="novalidate" method="post" enctype="multipart/form-data">
 				
-				<h2 class="title"><?php _e('Your Shortcode','abl_amamc_td') ?></h2>
+				<h2 class="title"><?php _e('Your Shortcode','ask-me-anything-anonymously') ?></h2>
 				
-				<p><label for="amamc_shortcode"><?php _e('Copy the following shortcode into a post or page or sidebar text widget to generate the Ask Me Anything page.','abl_amamc_td') ?></label></p>
+				<p><label for="amamc_shortcode"><?php _e('Copy the following shortcode into a post or page or sidebar text widget to generate the Ask Me Anything page.','ask-me-anything-anonymously') ?></label></p>
 				<textarea rows="5" class="large-text code" id="amamc_shortcode" name="amamc_shortcode"><?php echo '[askmeanythingpeople]'; ?></textarea>
 				
 				<table class="form-table">
 					<tbody>
 						<tr>
-							<th scope="row"><label for="loop_or_sidebar"><?php _e('Choose Location','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="loop_or_sidebar"><?php _e('Choose Location','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<select id="loop_or_sidebar" name="loop_or_sidebar" onchange="amamc_make_shortcode()">
 									<option value="loop" selected="selected">Page / Post</option>
 									<option value="sidebar">Sidebar Widget</option>
 								</select>
-								<p class="description"><?php _e('Choose the location where you will be using the shortcode.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Choose the location where you will be using the shortcode.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr id="ama-post-page-id-hidden" style="display:none;">
-							<th scope="row"><label for="post_or_page_id"><?php _e('Page / Post ID','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="post_or_page_id"><?php _e('Page / Post ID','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<input type="text" class="regular-text" value="0" id="post_or_page_id" name="post_or_page_id" onchange="amamc_make_shortcode()">
 								<p class="description"><?php _e('Questions are saved as WordPress comments and all comments need to be associated with a page or a post. 
 								<br>- First, generate a shortcode with location set as "Page / Post" and add it to a page or a post. 
-								<br>- Then generate a second shortcode to use on a "Sidebar Widget" and enter the ID of the page or post from the previous step. Use this shortcode on the sidebar.','abl_amamc_td') ?></p>
+								<br>- Then generate a second shortcode to use on a "Sidebar Widget" and enter the ID of the page or post from the previous step. Use this shortcode on the sidebar.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="latest_first"><?php _e('Answers List Order','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="latest_first"><?php _e('Answers List Order','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<select id="latest_first" name="latest_first" onchange="amamc_make_shortcode()">
-									<option value="true" selected="selected"><?php _e('Display Newest Question First','abl_amamc_td') ?></option>
-									<option value="false"><?php _e('Display Oldest Question First','abl_amamc_td') ?></option>
+									<option value="true" selected="selected"><?php _e('Display Newest Question First','ask-me-anything-anonymously') ?></option>
+									<option value="false"><?php _e('Display Oldest Question First','ask-me-anything-anonymously') ?></option>
 								</select>
-								<p class="description"><?php _e('Choose the order in which questions are to be displayed.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Choose the order in which questions are to be displayed.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="anonymous_name"><?php _e('Author Name','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="anonymous_name"><?php _e('Author Name','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<input type="text" class="regular-text" value="<?php _e('Someone','abl_amamc_td') ?>" id="anonymous_name" name="anonymous_name" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('This will be the name of every question author.','abl_amamc_td') ?></p>
+								<input type="text" class="regular-text" value="<?php _e('Someone','ask-me-anything-anonymously') ?>" id="anonymous_name" name="anonymous_name" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('This will be the name of every question author.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="success_text"><?php _e('Success Message','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="success_text"><?php _e('Success Message','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<input type="text" class="regular-text" value="<?php _e('Your question is saved and will appear when it is answered.','abl_amamc_td') ?>" id="success_text" name="success_text" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter a message that will be displayed when a user submits a question successfully.','abl_amamc_td') ?></p>
+								<input type="text" class="regular-text" value="<?php _e('Your question is saved and will appear when it is answered.','ask-me-anything-anonymously') ?>" id="success_text" name="success_text" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('Enter a message that will be displayed when a user submits a question successfully.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="question_box_title"><?php _e('Question Box Title','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="question_box_title"><?php _e('Question Box Title','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<input type="text" class="regular-text" value="<?php _e('Your Question','abl_amamc_td') ?>" id="question_box_title" name="question_box_title" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the title of the question box.','abl_amamc_td') ?></p>
+								<input type="text" class="regular-text" value="<?php _e('Your Question','ask-me-anything-anonymously') ?>" id="question_box_title" name="question_box_title" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('Enter the title of the question box.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="placeholder"><?php _e('Question Box Placeholder','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="placeholder"><?php _e('Question Box Placeholder','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<input type="text" class="regular-text" value="<?php _e('In the spirit of keeping it anonymous, please do not leave any personal information.','abl_amamc_td') ?>" id="placeholder" name="placeholder" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the text to be displayed within the question box as a placeholder.','abl_amamc_td') ?></p>
+								<input type="text" class="regular-text" value="<?php _e('In the spirit of keeping it anonymous, please do not leave any personal information.','ask-me-anything-anonymously') ?>" id="placeholder" name="placeholder" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('Enter the text to be displayed within the question box as a placeholder.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="test_question"><?php _e('Verification Question','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="test_question"><?php _e('Verification Question','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<input type="text" class="regular-text" value="<?php _e('What is 7+5?','abl_amamc_td') ?>" id="test_question" name="test_question" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter a test question to verify the user is human.','abl_amamc_td') ?></p>
+								<input type="text" class="regular-text" value="<?php _e('What is 7+5?','ask-me-anything-anonymously') ?>" id="test_question" name="test_question" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('Enter a test question to verify the user is human.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="test_answer"><?php _e('Verification Answer','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="test_answer"><?php _e('Verification Answer','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<input type="text" class="regular-text" value="12" id="test_answer" name="test_answer" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the answer to the verification question.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Enter the answer to the verification question.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="test_placeholder"><?php _e('Verification Box Placeholder','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="test_placeholder"><?php _e('Verification Box Placeholder','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<input type="text" class="regular-text" value="Enter your answer." id="test_placeholder" name="test_placeholder" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the text to be displayed within the verification answer box as a placeholder.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Enter the text to be displayed within the verification answer box as a placeholder.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="ask_button_text"><?php _e('Submit Button Text','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="ask_button_text"><?php _e('Submit Button Text','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<input type="text" class="regular-text" value="<?php _e('Ask Anonymously','abl_amamc_td') ?>" id="ask_button_text" name="ask_button_text" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the text to be displayed on the form submit button.','abl_amamc_td') ?></p>
+								<input type="text" class="regular-text" value="<?php _e('Ask Anonymously','ask-me-anything-anonymously') ?>" id="ask_button_text" name="ask_button_text" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('Enter the text to be displayed on the form submit button.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="answer_list_title"><?php _e('Answers List Title','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="answer_list_title"><?php _e('Answers List Title','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<input type="text" class="regular-text" value="<?php _e('Answers So Far..','abl_amamc_td') ?>" id="answer_list_title" name="answer_list_title" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the title to the list of questions and answers.','abl_amamc_td') ?></p>
+								<input type="text" class="regular-text" value="<?php _e('Answers So Far..','ask-me-anything-anonymously') ?>" id="answer_list_title" name="answer_list_title" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('Enter the title to the list of questions and answers.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="no_answers_text"><?php _e('No Questions Text','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="no_answers_text"><?php _e('No Questions Text','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<input type="text" class="regular-text" value="<?php _e('Be the first to ask!','abl_amamc_td') ?>" id="no_answers_text" name="no_answers_text" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the text to be displayed when there are no questions yet.','abl_amamc_td') ?></p>
+								<input type="text" class="regular-text" value="<?php _e('Be the first to ask!','ask-me-anything-anonymously') ?>" id="no_answers_text" name="no_answers_text" onchange="amamc_make_shortcode()">
+								<p class="description"><?php _e('Enter the text to be displayed when there are no questions yet.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="questions_per_page"><?php _e('Question Per Page','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="questions_per_page"><?php _e('Question Per Page','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<input type="text" class="regular-text" value="10" id="questions_per_page" name="questions_per_page" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the number of questions per page.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Enter the number of questions per page.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="avatar"><?php _e('Avatar Image','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="avatar"><?php _e('Avatar Image','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<select id="avatar" name="avatar" onchange="amamc_make_shortcode()">
 									<option value="monsterid" selected="selected">Monster</option>
@@ -423,75 +423,75 @@ function amamc_admin_interface_render () { ?>
 									<option value="indenticon">Identicon</option>
 									<option value="mysteryman">Mystery Man</option>
 								</select>
-								<p class="description"><?php _e('Choose the avatar image to be displayed for questions.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Choose the avatar image to be displayed for questions.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="avatar_size"><?php _e('Avatar Size','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="avatar_size"><?php _e('Avatar Size','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<input type="text" class="regular-text" value="96" id="avatar_size" name="avatar_size" onchange="amamc_make_shortcode()">
-								<p class="description"><?php _e('Enter the size of the avatar image. 0 to hide. Maximum value is 512.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Enter the size of the avatar image. 0 to hide. Maximum value is 512.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="show_question_box"><?php _e('Show Question Box','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="show_question_box"><?php _e('Show Question Box','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<select id="show_question_box" name="show_question_box" onchange="amamc_make_shortcode()">
 									<option value="true" selected="selected">Show</option>
 									<option value="false">Hide</option>
 								</select>
-								<p class="description"><?php _e('Show or hide the question box. Hide if you want to display just a list of questions, on the sidebar (for example).','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Show or hide the question box. Hide if you want to display just a list of questions, on the sidebar (for example).','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="show_answers"><?php _e('Show Questions List','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="show_answers"><?php _e('Show Questions List','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<select id="show_answers" name="show_answers" onchange="amamc_make_shortcode()">
 									<option value="true" selected="selected">Show</option>
 									<option value="false">Hide</option>
 								</select>
-								<p class="description"><?php _e('Show or hide the questions (and answers). Hide if you want to display just the question box, on the sidebar (for example).','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Show or hide the questions (and answers). Hide if you want to display just the question box, on the sidebar (for example).','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="show_navigation"><?php _e('Show Navigation','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="show_navigation"><?php _e('Show Navigation','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<select id="show_navigation" name="show_navigation" onchange="amamc_make_shortcode()">
 									<option value="true" selected="selected">Show</option>
 									<option value="false">Hide</option>
 								</select>
-								<p class="description"><?php _e('Show or hide the navigation. Navigation is automatically hidden if the questions list is hidden.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Show or hide the navigation. Navigation is automatically hidden if the questions list is hidden.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="show_test_question"><?php _e('Show Test Question','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="show_test_question"><?php _e('Show Test Question','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<select id="show_test_question" name="show_test_question" onchange="amamc_make_shortcode()">
 									<option value="true" selected="selected">Show</option>
 									<option value="false">Hide</option>
 								</select>
-								<p class="description"><?php _e('Show or hide the test question. Hide if you have other ways to check for spam, like a captcha plugin.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Show or hide the test question. Hide if you have other ways to check for spam, like a captcha plugin.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="show_do_action"><?php _e('Additional Form Elements','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="show_do_action"><?php _e('Additional Form Elements','ask-me-anything-anonymously') ?></label></th>
 							<td>
 								<select id="show_do_action" name="show_do_action" onchange="amamc_make_shortcode()">
 									<option value="true">Show</option>
 									<option value="false" selected="selected">Hide</option>
 								</select>
-								<p class="description"><?php _e('Show or hide additional form elements added by other plugins. For instance, captcha plugins add a captcha to the default comment form.','abl_amamc_td') ?></p>
+								<p class="description"><?php _e('Show or hide additional form elements added by other plugins. For instance, captcha plugins add a captcha to the default comment form.','ask-me-anything-anonymously') ?></p>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><label for="give_thanks"><?php _e('Show Credit Link','abl_amamc_td') ?></label></th>
+							<th scope="row"><label for="give_thanks"><?php _e('Show Credit Link','ask-me-anything-anonymously') ?></label></th>
 							<td>
-								<p class="description" id="ama-hidden-thanks" style="display:none; color:#E14D43;"><?php _e('Thank you! I appreciate that.','abl_amamc_td') ?></p>
+								<p class="description" id="ama-hidden-thanks" style="display:none; color:#E14D43;"><?php _e('Thank you! I appreciate that.','ask-me-anything-anonymously') ?></p>
 								<select id="give_thanks" name="give_thanks" onchange="amamc_make_shortcode()">
 									<option value="true">Show</option>
 									<option value="false" selected="selected">Hide</option>
 								</select>
-								<p class="description"><?php printf(__('If you like this plugin, show your appreciation by displaying a tiny link to <a href="%s" target="_blank">my website</a> at the bottom of the page.','abl_amamc_td'),'http://millionclues.com/'); ?></p>
+								<p class="description"><?php printf(__('If you like this plugin, show your appreciation by displaying a tiny link to <a href="%s" target="_blank">my website</a> at the bottom of the page.','ask-me-anything-anonymously'),'http://millionclues.com/'); ?></p>
 							</td>
 						</tr>
 					</tbody>
@@ -502,8 +502,8 @@ function amamc_admin_interface_render () { ?>
 		
 		else { // i.e $active_tab == 'settings' ?>
 		
-			<h2><?php _e('Custom CSS','abl_amamc_td') ?></h2>
-			<p><?php _e('To customize your AMA page add your custom CSS here.','abl_amamc_td') ?></p>
+			<h2><?php _e('Custom CSS','ask-me-anything-anonymously') ?></h2>
+			<p><?php _e('To customize your AMA page add your custom CSS here.','ask-me-anything-anonymously') ?></p>
 			
 			<?php 
 			// Load CSS From Database
@@ -514,7 +514,7 @@ function amamc_admin_interface_render () { ?>
 				$amamc_custom_css_option = get_option( 'amamc_custom_css' );
 			}
 			
-			$amamc_admin_css_content = isset( $amamc_custom_css_option['amamc_admin_css'] ) && ! empty( $amamc_custom_css_option['amamc_admin_css'] ) ? $amamc_custom_css_option['amamc_admin_css'] : __( "/* Custom CSS For Ask Me Anything Page*/\r\n", 'abl_amamc_td' );
+			$amamc_admin_css_content = isset( $amamc_custom_css_option['amamc_admin_css'] ) && ! empty( $amamc_custom_css_option['amamc_admin_css'] ) ? $amamc_custom_css_option['amamc_admin_css'] : __( "/* Custom CSS For Ask Me Anything Page*/\r\n", 'ask-me-anything-anonymously' );
 			?>
 			
 			<form method="post" action="options.php" method="post" enctype="multipart/form-data">
@@ -526,10 +526,10 @@ function amamc_admin_interface_render () { ?>
 				<div style="margin-top: 5px;">
 					<input type="checkbox" name="amamc_custom_css[minfy_css]" id="amamc_custom_css[minfy_css]" value="1"
 						<?php if ( isset( $amamc_custom_css_option['minfy_css'] ) ) { checked( '1', $amamc_custom_css_option['minfy_css'] ); } ?>>
-						<label for="amamc_custom_css[minfy_css]" style="vertical-align: unset;"><?php _e('Minify output', 'abl_amamc_td') ?></label>
+						<label for="amamc_custom_css[minfy_css]" style="vertical-align: unset;"><?php _e('Minify output', 'ask-me-anything-anonymously') ?></label>
 				</div>
 				
-				<?php submit_button( __( 'Save CSS', 'abl_amamc_td' ), 'primary', 'submit', true ); ?>
+				<?php submit_button( __( 'Save CSS', 'ask-me-anything-anonymously' ), 'primary', 'submit', true ); ?>
 			</form>
 			
 			<?php // Highlighter ?>
@@ -558,16 +558,16 @@ function amamc_do_askmeanythingpeople( $atts ) {
 		array(
 			'post_or_page_id'	=> 0,
 			'latest_first' 		=> true,
-			'anonymous_name'	=> __('Someone','abl_amamc_td'),
-			'success_text'		=> __('Your question is saved and will appear when it is answered.','abl_amamc_td'),
-			'question_box_title'=> __('Your Question','abl_amamc_td'),
-			'placeholder'		=> __('In the spirit of keeping it anonymous, please do not leave any personal information.','abl_amamc_td'),
-			'test_question'		=> __('What is 7+5?','abl_amamc_td'),
-			'test_answer'		=> __('12','abl_amamc_td'),
-			'test_placeholder'	=> __('Enter your answer.','abl_amamc_td'),
-			'ask_button_text'	=> __('Ask Anonymously','abl_amamc_td'),
-			'answer_list_title'	=> __('Answers So Far..','abl_amamc_td'),
-			'no_answers_text'	=> __('Be the first to ask!','abl_amamc_td'),
+			'anonymous_name'	=> __('Someone','ask-me-anything-anonymously'),
+			'success_text'		=> __('Your question is saved and will appear when it is answered.','ask-me-anything-anonymously'),
+			'question_box_title'=> __('Your Question','ask-me-anything-anonymously'),
+			'placeholder'		=> __('In the spirit of keeping it anonymous, please do not leave any personal information.','ask-me-anything-anonymously'),
+			'test_question'		=> __('What is 7+5?','ask-me-anything-anonymously'),
+			'test_answer'		=> __('12','ask-me-anything-anonymously'),
+			'test_placeholder'	=> __('Enter your answer.','ask-me-anything-anonymously'),
+			'ask_button_text'	=> __('Ask Anonymously','ask-me-anything-anonymously'),
+			'answer_list_title'	=> __('Answers So Far..','ask-me-anything-anonymously'),
+			'no_answers_text'	=> __('Be the first to ask!','ask-me-anything-anonymously'),
 			'questions_per_page'=> 10,
 			'avatar'			=> 'monsterid', // 'retro' (8bit), 'monsterid' (monster), 'wavatar' (cartoon face), 'indenticon', 'mysteryman', 'blank', 'gravatar_default'
 			'avatar_size'		=> 96,			// max is 512
@@ -586,7 +586,7 @@ function amamc_do_askmeanythingpeople( $atts ) {
 		<?php 
 		
 		if ( $post_or_page_id == 0 && !in_the_loop() ) {
-			_e('The attribute post_or_page_id must be set to use on the sidebar and outside the WordPress loop. <br><br>Please refer Installation instructions.','abl_amamc_td');
+			_e('The attribute post_or_page_id must be set to use on the sidebar and outside the WordPress loop. <br><br>Please refer Installation instructions.','ask-me-anything-anonymously');
 		}
 		else if ( $post_or_page_id != 0 || in_the_loop() ) {
 			
@@ -621,7 +621,7 @@ function amamc_do_askmeanythingpeople( $atts ) {
 					// Warn If User Is Logged In 
 					if ( is_user_logged_in() ) { ?>
 						<div id="ama-loggedinwarning" class="ama-notice ama-loggedinwarning">
-						<?php _e('Since you are currently logged in, your question will not be anonymous. Please log out or open this page in a private window if you wish to stay anonymous.','abl_amamc_td'); ?>
+						<?php _e('Since you are currently logged in, your question will not be anonymous. Please log out or open this page in a private window if you wish to stay anonymous.','ask-me-anything-anonymously'); ?>
 						</div> <?php
 					} ?>
 				
@@ -699,7 +699,7 @@ function amamc_do_askmeanythingpeople( $atts ) {
 													<div class="ama-question-meta">
 														<div class="comment-author vcard amaavatar">
 															<?php echo get_avatar( $question->comment_author_email, $avatar_size, $avatar ); ?>
-															<b class="fn"><cite class="fn ama-anonymous-name"><?php echo $anonymous_name; ?></cite></b> <span class="amasays amaasked"><?php _e('asked:','abl_amamc_td') ?></span>
+															<b class="fn"><cite class="fn ama-anonymous-name"><?php echo $anonymous_name; ?></cite></b> <span class="amasays amaasked"><?php _e('asked:','ask-me-anything-anonymously') ?></span>
 														</div>
 											
 														<div class="comment-meta comment-metadata amaquestiondate time">
@@ -730,7 +730,7 @@ function amamc_do_askmeanythingpeople( $atts ) {
 																	<div class="ama-answer-meta">
 																		<div class="comment-author vcard amaavatar">
 																			<?php echo get_avatar( $answer->comment_author_email, $avatar_size ); ?>
-																			<b class="fn"><cite class="fn ama-author-name"><?php echo $answer->comment_author; ?></cite></b> <span class="amasays amareply"><?php _e('replied:','abl_amamc_td') ?></span>
+																			<b class="fn"><cite class="fn ama-author-name"><?php echo $answer->comment_author; ?></cite></b> <span class="amasays amareply"><?php _e('replied:','ask-me-anything-anonymously') ?></span>
 																		</div>
 															
 																		<div class="comment-meta comment-metadata amaanswer time">
@@ -764,12 +764,12 @@ function amamc_do_askmeanythingpeople( $atts ) {
 										
 										// Pagination - Previous Page
 										if ( $page_number > 1 ) {
-											echo '<div class="nav-previous"><a href="'.get_permalink().'?questions='.($page_number-1).'">' . __("Previous Questions", "abl_amamc_td") . '</a></div>';
+											echo '<div class="nav-previous"><a href="'.get_permalink().'?questions='.($page_number-1).'">' . __("Previous Questions", "ask-me-anything-anonymously") . '</a></div>';
 										}
 										
 										// Pagination - Next Page
 										if ( ( $number_of_questions - $offset ) > $questions_per_page ) {
-											echo '<div class="nav-next"><a href="'.get_permalink().'?questions='.($page_number+1).'">' . __("Next Questions", "abl_amamc_td") . '</a></div>';
+											echo '<div class="nav-next"><a href="'.get_permalink().'?questions='.($page_number+1).'">' . __("Next Questions", "ask-me-anything-anonymously") . '</a></div>';
 										}
 										
 										echo '</div>';
