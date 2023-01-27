@@ -5,7 +5,7 @@ Plugin URI: http://millionclues.com
 Description: Let your visitors as you questions anonymously and list all questions in a neat list. 
 Author: Arun Basil Lal
 Author URI: http://millionclues.com
-Version: 1.4
+Version: 1.5
 Text Domain: abl_amamc_td
 Domain Path: /languages
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html

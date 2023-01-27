@@ -3,7 +3,7 @@ Contributors: arunbasillal
 Donate link: http://millionclues.com/donate/
 Tags: ask me anything, ama, tumblr style questions, qanda, question and answer, anonymous questions, ask questions anonymously, shortcode, Sarahah
 Requires at least: 2.7
-Tested up to: 5.7
+Tested up to: 6.1.1
 Requires PHP: 5.5
 Stable tag: trunk
 License: GPLv2 or later
@@ -155,7 +155,7 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 
 == Changelog ==
 
-= 1.4 =
+= 1.5 =
 * Date: 27.January.2023.
 * Tested with WordPress 6.1.1.
 * Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
@@ -193,7 +193,7 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 
 == Upgrade Notice ==
 
-= 1.4 =
+= 1.5 =
 * Date: 27.January.2023.
 * Tested with WordPress 6.1.1.
 * Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
