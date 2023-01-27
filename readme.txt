@@ -83,6 +83,8 @@ Please read the Installation page and FAQ page for more information. If you stil
 
 If you like my plugin, please [rate it](https://wordpress.org/support/plugin/ask-me-anything-anonymously/reviews/?rate=5#new-post) and give me credit by setting the give_thanks attribute to true (default is false) in the shortcode. Thanks!
 
+GitHub: [arunbasillal/ask-me-anything-anonymously](https://github.com/arunbasillal/ask-me-anything-anonymously)
+
 == Installation ==
 
 To Install This Plugin:
