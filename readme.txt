@@ -162,6 +162,8 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 * Tested with WordPress 6.1.1.
 * Enhancement: !IMPORTANT! Main plugin file was renamed to meet WordPress standards. This will deactivate the plugin on update. Simply reactivate the plugin to fix the issue.
 * Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
+* Enhancement: Updated CSSTidy to 1.7.3.
+* Security Fix: Deleted unwanted files in CSSTidy.
 * I18n: Updated text domain from `abl_amamc_td` to `ask-me-anything-anonymously` as per WordPress [internationalization guidelines](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#text-domains).
 
 = 1.4 =
@@ -202,6 +204,8 @@ I am glad to hear that! You can either [make a donation](http://millionclues.com
 * Tested with WordPress 6.1.1.
 * Enhancement: !IMPORTANT! Main plugin file was renamed to meet WordPress standards. This will deactivate the plugin on update. Simply reactivate the plugin to fix the issue.
 * Enhancement: Added new attribute `test_placeholder` to edit the placeholder text of the verification question answer box.
+* Enhancement: Updated CSSTidy to 1.7.3.
+* Security Fix: Deleted unwanted files in CSSTidy.
 * I18n: Updated text domain from `abl_amamc_td` to `ask-me-anything-anonymously` as per WordPress [internationalization guidelines](https://developer.wordpress.org/plugins/internationalization/how-to-internationalize-your-plugin/#text-domains).
 
 = 1.4 =
