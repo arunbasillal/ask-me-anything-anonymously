@@ -11,8 +11,6 @@ Domain Path: /languages
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 */
 
-
-
 /*------------------------------------------*/
 /*			Plugin Setup Functions			*/
 /*------------------------------------------*/
@@ -20,13 +18,11 @@ License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 // Exit If Accessed Directly
 if ( ! defined( 'ABSPATH' ) ) exit;
 
-
 // Add Admin Menu Pages
 function amamc_add_menu_links() {
 	add_options_page ( __('Ask Me Anything','ask-me-anything-anonymously'), __('Ask Me Anything','ask-me-anything-anonymously'), 'moderate_comments', 'ask-me-anything-shortcode-generator','amamc_admin_interface_render'  );
 }
 add_action( 'admin_menu', 'amamc_add_menu_links' );
-
 
 // Print Direct Link To Plugin Settings In Plugins List In Admin
 function amamc_settings_link( $links ) {
@@ -38,7 +34,6 @@ function amamc_settings_link( $links ) {
 	);
 }
 add_filter( 'plugin_action_links_' . plugin_basename(__FILE__), 'amamc_settings_link' );
-
 
 // Add Donate Link to Plugins list
 function amamc_plugin_row_meta( $links, $file ) {
@@ -53,13 +48,11 @@ function amamc_plugin_row_meta( $links, $file ) {
 }
 add_filter( 'plugin_row_meta', 'amamc_plugin_row_meta', 10, 2 );
 
-
 // Load Text Domain
 function amamc_load_plugin_textdomain() {
     load_plugin_textdomain( 'ask-me-anything-anonymously', FALSE, basename( dirname( __FILE__ ) ) . '/languages/' );
 }
 add_action( 'plugins_loaded', 'amamc_load_plugin_textdomain' );
-
 
 // Register Settings
 function amamc_register_settings() {
@@ -67,13 +60,11 @@ function amamc_register_settings() {
 }
 add_action( 'admin_init', 'amamc_register_settings' );
 
-
 // Delete Options During Uninstall
 function amamc_uninstall_plugin() {
 	delete_option( 'amamc_custom_css' );
 }
 register_uninstall_hook(__FILE__, 'amamc_uninstall_plugin' );
-
 
 /*--------------------------------------*/
 /*			Admin Options Page			*/
@@ -89,14 +80,11 @@ function amamc_register_highlighter( $hook ) {
 }
 add_action( 'admin_enqueue_scripts', 'amamc_register_highlighter' );
 
-
-
 // Sanitize CSS with CSS Tidy - Uses CSS Tidy Modified By The Jetpack Team. 
 function amamc_clean_css_with_csstidy ( $input ) {
 	$input['amamc_admin_css'] 		= amamc_csstidy_helper ( $input['amamc_admin_css'] );
 	return $input;
 }
-
 
 // Scrub And Clean With CSS Tidy
 function amamc_csstidy_helper ( $css, $minify=false ) {
@@ -131,7 +119,6 @@ function amamc_csstidy_helper ( $css, $minify=false ) {
 
 	return $css;
 }
-
 
 // Admin Interface Renderer
 function amamc_admin_interface_render () { ?>
@@ -544,8 +531,6 @@ function amamc_admin_interface_render () { ?>
 	</div><?php
 }
 
-
-
 /*--------------------------------------*/
 /*			Plugin Operations			*/
 /*--------------------------------------*/
@@ -820,13 +805,11 @@ function amamc_do_askmeanythingpeople( $atts ) {
 }
 add_shortcode( 'askmeanythingpeople', 'amamc_do_askmeanythingpeople' );
 
-
 // Disable Default Comments By Loading A Blank Comments Template
 // Used In amamc_do_askmeanythingpeople()
 function amamc_disable_default_comments( $comment_template ) {
 	return dirname(__FILE__) . '/inc/amamc_blank-comment-template.php';
 }
-
 
 // Spam Check On The AMA Form
 function amamc_bot_exterminator() {
@@ -837,7 +820,6 @@ function amamc_bot_exterminator() {
 	}
 }
 add_action('pre_comment_on_post', 'amamc_bot_exterminator');
-
 
 // Replace #comment-## with #questionsaved for AMA Page When Comment Is Saved
 function amamc_replace_url_after_ama_comment($location) {
@@ -854,7 +836,6 @@ function amamc_replace_url_after_ama_comment($location) {
 	return $location;
 }
 add_filter('comment_post_redirect', 'amamc_replace_url_after_ama_comment');
-
 
 // Load Custom CSS
 function amamc_load_custom_css() {
@@ -882,4 +863,3 @@ function amamc_load_custom_css() {
     </style><?php 
 }
 //add_filter( 'wp_enqueue_scripts' , 'amamc_load_custom_css' ); // Uncomment this to load the CSS on all frontend pages.
-?>
