@@ -3,7 +3,7 @@ Contributors: arunbasillal
 Donate link: http://millionclues.com/donate/
 Tags: ask me anything, ama, tumblr style questions, qanda, question and answer, anonymous questions, ask questions anonymously, shortcode, Sarahah
 Requires at least: 2.7
-Tested up to: 6.1.1
+Tested up to: 6.2
 Requires PHP: 5.5
 Stable tag: trunk
 License: GPLv2 or later
