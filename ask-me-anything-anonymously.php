@@ -5,7 +5,7 @@ Plugin URI: http://millionclues.com
 Description: Let your visitors as you questions anonymously and list all questions in a neat list. 
 Author: Arun Basil Lal
 Author URI: http://millionclues.com
-Version: 1.5
+Version: 1.6
 Text Domain: ask-me-anything-anonymously
 Domain Path: /languages
 License: GPL v2 - http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
